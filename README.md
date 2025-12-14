@@ -74,7 +74,10 @@ class Exec:
     def __init__(self):
         pass
     def __call__(self, code):
-        return run_dsl(code)
+        try:
+            return run_dsl(code)
+        except Exception as e:
+            return str(e)
 ```
 
 ---
