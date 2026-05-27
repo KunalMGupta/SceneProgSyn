@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 setup(
     name='sceneprogsyn',  # Replace with your package's name
-    version='0.1.0',    # Replace with your package's version
+    version='0.1.1',    # Replace with your package's version
     description='An LLM based program synthesizer for custom DSLs',
     long_description=open('README.md').read(),  # Optional: Use your README for a detailed description
     long_description_content_type='text/markdown',
