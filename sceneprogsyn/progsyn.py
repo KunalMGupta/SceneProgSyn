@@ -6,13 +6,14 @@ class SceneProgSyn:
     SceneProgSyn writes a program to solve a user query. It comes with a built-in debugger.
     The code is executed with an execution environment such as Blender. 
     '''
-    def __init__(self, system_desc, model_name="gpt-5", reasoning_effort="medium"):
+    def __init__(self, system_desc, model_name="gpt-5", reasoning_effort="medium", api_key=None):
 
         self.core = LLM(
             system_desc=system_desc,
             response_format="code",
             model_name=model_name,
-            reasoning_effort=reasoning_effort
+            reasoning_effort=reasoning_effort,
+            api_key=api_key
         )
 
         self.debugger = None
