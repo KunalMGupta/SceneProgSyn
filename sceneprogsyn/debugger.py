@@ -9,7 +9,8 @@ class SceneProgDebugger:
                  model_name="gpt-5", 
                  reasoning_effort="minimal", 
                  max_tries=8, 
-                 visualize=False):
+                 visualize=False,
+                 api_key=None):
         
         self.template = template
         self.MAX_TRIES = max_tries
@@ -21,14 +22,16 @@ class SceneProgDebugger:
             system_desc=self.get_code_refiner_prompt(),
             response_format="code",
             model_name=model_name,
-            reasoning_effort=reasoning_effort
+            reasoning_effort=reasoning_effort,
+            api_key=api_key
         )
 
         self.trace_refine_llm = LLM(
             system_desc=self.get_trace_refiner_prompt(),
             response_format="code",
             model_name=model_name,
-            reasoning_effort=reasoning_effort
+            reasoning_effort=reasoning_effort,
+            api_key=api_key
         )
 
         self.checker_llm = LLM(
@@ -40,7 +43,8 @@ Note that if you see no errors in the stdout, it means the code executed success
 """,
             response_format="pydantic",
             model_name=model_name,
-            reasoning_effort=reasoning_effort
+            reasoning_effort=reasoning_effort,
+            api_key=api_key
         )
 
     def header(self):
